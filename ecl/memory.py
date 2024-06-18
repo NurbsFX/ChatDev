@@ -7,6 +7,17 @@ import math
 import os
 import sys
 import openai
+
+import subprocess
+import sys
+
+# Vérifier si openai est installé, sinon l'installer
+try:
+    import faiss
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "faiss", "--break-system-packages"])
+    import faiss
+
 import faiss
 import numpy as np
 from datetime import datetime

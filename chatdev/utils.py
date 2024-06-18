@@ -3,6 +3,16 @@ import logging
 import re
 import time
 
+import subprocess
+import sys
+
+# Vérifier si openai est installé, sinon l'installer
+try:
+    import markdown
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "markdown", "--break-system-packages"])
+    import markdown
+
 import markdown
 import inspect
 from camel.messages.system_messages import SystemMessage

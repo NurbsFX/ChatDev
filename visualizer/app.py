@@ -1,6 +1,17 @@
 import logging
 import requests
 import os
+
+import subprocess
+import sys
+
+# Vérifier si openai est installé, sinon l'installer
+try:
+    import flask
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "flask", "--break-system-packages"])
+    import flask
+
 from flask import Flask, send_from_directory, request, jsonify
 import argparse
 

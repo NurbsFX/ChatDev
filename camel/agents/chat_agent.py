@@ -11,6 +11,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
+# Vérifier si tenacity est installé, sinon l'installer
+
+import subprocess
+import sys
+
+try:
+    import tenacity
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip", "--break-system-packages"])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tenacity", "--break-system-packages"])
+    import tenacity
+
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 

@@ -11,6 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # =========== Copyright 2023 @ CAMEL-AI.org. All Rights Reserved. ===========
+import subprocess
+import sys
+
+# Vérifier si openai est installé, sinon l'installer
+try:
+    import openai
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openai", "--break-system-packages"])
+    import openai
+    
+# Vérifier si tiktoken est installé, sinon l'installer
+try:
+    import tiktoken
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tiktoken", "--break-system-packages"])
+    import tiktoken
+
+
 from abc import ABC, abstractmethod
 from typing import Any, Dict
 

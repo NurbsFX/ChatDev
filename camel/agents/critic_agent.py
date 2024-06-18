@@ -16,6 +16,17 @@ import random
 import warnings
 from typing import Any, Dict, Optional, Sequence
 
+
+import subprocess
+import sys
+
+# Vérifier si openai est installé, sinon l'installer
+try:
+    import colorama
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "colorama", "--break-system-packages"])
+    import colorama
+
 from colorama import Fore
 
 from camel.agents import ChatAgent
